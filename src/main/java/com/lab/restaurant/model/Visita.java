@@ -5,6 +5,7 @@ import java.util.Date;
 
 /**
  * Created by Kei on 10/05/2016.
+ * Modified by Braulio on 11/05/2016
  */
 public class Visita {
 
