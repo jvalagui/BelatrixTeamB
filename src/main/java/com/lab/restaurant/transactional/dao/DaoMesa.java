@@ -1,4 +1,4 @@
-package com.lab.restaurant.com.dao;
+package com.lab.restaurant.transactional.dao;
 import com.lab.restaurant.model.Mesa;
 
 import java.util.List;

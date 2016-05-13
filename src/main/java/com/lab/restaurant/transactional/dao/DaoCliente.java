@@ -1,4 +1,4 @@
-package com.lab.restaurant.com.dao;
+package com.lab.restaurant.transactional.dao;
 
 import com.lab.restaurant.model.Cliente;
 import java.util.List;
