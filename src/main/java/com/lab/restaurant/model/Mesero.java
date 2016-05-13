@@ -1,14 +1,12 @@
 package com.lab.restaurant.model;
 
 /**
- * Created by Kei on 09/05/2016.
+ * Created by Kei on 09/05/2016
  */
+
 public class Mesero extends Persona {
 
     private Mesa mesa;
-
-    public Mesero() {
-    }
 
     public Mesero(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado, Mesa mesa) {
         super(id, numDocumento, nombre, apPaterno, apMaterno, estado);
