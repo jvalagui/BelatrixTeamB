@@ -1,7 +1,6 @@
 package com.lab.restaurant.model;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
 /**
  * Created by Kei on 09/05/2016
