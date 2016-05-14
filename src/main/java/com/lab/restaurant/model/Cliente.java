@@ -1,7 +1,5 @@
 package com.lab.restaurant.model;
 
-import java.util.Date;
-
 /**
  * Created by Kei on 10/05/2016.
  */
