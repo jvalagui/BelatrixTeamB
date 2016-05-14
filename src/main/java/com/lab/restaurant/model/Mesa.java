@@ -18,11 +18,11 @@ public class Mesa {
     public Mesa() {
     }
 
-    public Mesa(int id, int numMesa, int capacidad, int estado) {
+    public Mesa(int id, int numMesa, int capacidad) {
         this.id = id;
         this.numMesa = numMesa;
         this.capacidad = capacidad;
-        this.estado = estado;
+        this.estado = 1;
         this.created_at = new Date();
         this.updated_at = null;
         this.deleted_at = null;

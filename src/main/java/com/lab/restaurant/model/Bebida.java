@@ -5,7 +5,7 @@ package com.lab.restaurant.model;
  */
 public class Bebida {
     //SUPER INCOMPLETO
-    private String tipoBebida() {
+    private void tipoBebida() {
         int t = 1;
         switch (t) {
             case 0:

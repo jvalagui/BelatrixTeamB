@@ -6,10 +6,25 @@ package com.lab.restaurant.model;
  */
 public class Alimento {
 
+    private int id;
     private double precio;
     private String tipoAlimento;
 
     public Alimento(){}
+
+    public Alimento(int id, double precio, String tipoAlimento){
+        this.id = id;
+        this.precio = precio;
+        this.tipoAlimento = tipoAlimento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getPrecio() {
         return precio;
