@@ -5,6 +5,7 @@ import com.lab.restaurant.model.Mesa;
 import com.lab.restaurant.model.Visita;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -14,4 +15,5 @@ import java.util.Stack;
  */
 public class AppRestauranteController {
     public static ArrayList<Cliente> listaCliente;
+    public static ArrayList<Mesa> listaMesas = new ArrayList<Mesa>();
 }
