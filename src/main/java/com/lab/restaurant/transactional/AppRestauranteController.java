@@ -13,5 +13,5 @@ import java.util.Stack;
  * Created by Kei on 10/05/2016.
  */
 public class AppRestauranteController {
-
+    public static ArrayList<Cliente> listaCliente;
 }
