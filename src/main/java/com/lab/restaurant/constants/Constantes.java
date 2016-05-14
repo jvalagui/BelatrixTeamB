@@ -6,4 +6,12 @@ package com.lab.restaurant.constants;
 public class Constantes {
     public static int totalMeseros;
     public static int totalMesas;
+
+    public enum tipoBebida{
+        REFRESCO,
+        GASEOSA,
+        INFUSION,
+        AGUA,
+        CERVEZA;
+    }
 }
