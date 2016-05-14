@@ -2,20 +2,28 @@ package com.lab.restaurant.model;
 
 /**
  * Created by Braulio Trigueros on 11/05/2016.
+ * Modified by Edu Chuks
  */
 public class Alimento {
-//Incompleto
-    private String tipoAlimento(){
-        String tA = "F";
-        if (tA == tA){
-            System.out.println("El alimento es Fresco");
-        }
-        else if (tA == "E"){
-            System.out.println("El alimento es Envasado");
-        }
-        else{
-            System.out.println("Ingrese tipo de alimento correcto (Fresco o Envasado");
-        }
-        return tA;
+
+    private double precio;
+    private String tipoAlimento;
+
+    public Alimento(){}
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getTipoAlimento() {
+        return tipoAlimento;
+    }
+
+    public void setTipoAlimento(String tipoAlimento) {
+        this.tipoAlimento = tipoAlimento;
     }
 }

@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Kei on 09/05/2016.
  */
-public abstract class Persona{
+public class Persona{
 
     private int id;
     private String numDocumento;
