@@ -7,11 +7,23 @@ import java.util.Date;
  */
 public class Cliente extends Persona {
 
+    private int numeroAcompanantes;
+
     public Cliente() {
     }
 
-    public Cliente(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado) {
+    public Cliente(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado, int numeroAcompanantes) {
         super(id, numDocumento, nombre, apPaterno, apMaterno, estado);
+
+        this.numeroAcompanantes = numeroAcompanantes;
+    }
+
+    public int getNumeroAcompanantes() {
+        return numeroAcompanantes;
+    }
+
+    public void setNumeroAcompanantes(int numeroAcompanantes) {
+        this.numeroAcompanantes = numeroAcompanantes;
     }
 
     @Override

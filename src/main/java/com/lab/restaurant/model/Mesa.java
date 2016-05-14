@@ -10,6 +10,7 @@ public class Mesa {
     private int id;
     private int numMesa;
     private int capacidad;
+    private Mesero mesero;
     private int estado;
     private Date created_at;
     private Date updated_at;
@@ -22,6 +23,7 @@ public class Mesa {
         this.id = id;
         this.numMesa = numMesa;
         this.capacidad = capacidad;
+        this.mesero = null;
         this.estado = 1;
         this.created_at = new Date();
         this.updated_at = null;
@@ -50,6 +52,14 @@ public class Mesa {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    public Mesero getMesero() {
+        return mesero;
+    }
+
+    public void setMesero(Mesero mesero) {
+        this.mesero = mesero;
     }
 
     public int getEstado() {
