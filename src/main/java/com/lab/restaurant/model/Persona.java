@@ -10,8 +10,8 @@ public class Persona{
     private int id;
     private String numDocumento;
     private String nombre;
-    private String apPaterno;
-    private String apMaterno;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
     private int estado;
     private Date created_at;
     private Date updated_at;
@@ -20,12 +20,12 @@ public class Persona{
     Persona() {
     }
 
-    Persona(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado) {
+    Persona(int id, String numDocumento, String nombre, String apellidoPaterno, String apellidoMaterno, int estado) {
         this.id = id;
         this.numDocumento = numDocumento;
         this.nombre = nombre;
-        this.apPaterno = apPaterno;
-        this.apMaterno = apMaterno;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
         this.estado = estado;
         this.created_at = new Date();
         this.updated_at = null;
@@ -56,20 +56,20 @@ public class Persona{
         this.nombre = nombre;
     }
 
-    public String getApPaterno() {
-        return apPaterno;
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
     }
 
-    public void setApPaterno(String apPaterno) {
-        this.apPaterno = apPaterno;
+    public void setApellidoPaterno(String apPaterno) {
+        this.apellidoPaterno = apPaterno;
     }
 
-    public String getApMaterno() {
-        return apMaterno;
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
     }
 
-    public void setApMaterno(String apMaterno) {
-        this.apMaterno = apMaterno;
+    public void setApellidoMaterno(String apMaterno) {
+        this.apellidoMaterno = apMaterno;
     }
 
     public int getEstado() {
@@ -110,8 +110,8 @@ public class Persona{
                 "id=" + id +
                 ", numDocumento='" + numDocumento + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", apPaterno='" + apPaterno + '\'' +
-                ", apMaterno='" + apMaterno + '\'' +
+                ", apellidoPaterno='" + apellidoPaterno + '\'' +
+                ", apellidoMaterno='" + apellidoMaterno + '\'' +
                 ", estado=" + estado +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +

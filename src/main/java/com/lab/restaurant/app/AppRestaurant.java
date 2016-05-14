@@ -1,11 +1,28 @@
 package com.lab.restaurant.app;
 
+import com.lab.restaurant.model.Alimento;
+import com.lab.restaurant.model.Cliente;
+import com.lab.restaurant.model.Mesa;
+import com.lab.restaurant.model.Mesero;
+
 /**
  * Created by Kei on 09/05/2016.
  */
 public class AppRestaurant {
 
     public static void main (String[] args){
+        Mesa mesa = new Mesa(1,1,5);
+        Mesero mesero = new Mesero(1,"45465424","Mario","Bros","Luigi",1,mesa);
+        Cliente cliente = new Cliente(1,"67545456","Toad","Bros","Peach",1);
+
+        Alimento alimento1 = new Alimento(1,10.5,"Envasado");
+        Alimento alimento2 = new Alimento(2,11.5,"Congelado");
+        Alimento alimento3 = new Alimento(3,14.5,"Envasado");
+        Alimento alimento4 = new Alimento(4,15.5,"Congelado");
+        Alimento alimento5 = new Alimento(5,13.5,"Envasado");
+
+        System.out.println("El cliente "+cliente.getNombre()+" "+cliente.getApellidoPaterno()+" entrará a la mesa "+mesa.getNumMesa());
+        System.out.println("El mesero "+mesero.getNombre()+" lo atenderá");
 
     }
 }
