@@ -10,43 +10,7 @@ import java.util.*;
  */
 public class AppRestauranteController {
 
-//    public static ArrayList<Cliente> listaCliente;
-//    public static ArrayList<Mesa> listaMesas = new ArrayList<Mesa>();
-//    public static ArrayList<Mesero> listaMeseros = new ArrayList<Mesero>();
-//    public static ArrayList<Alimento> listaAlimentos = new ArrayList<Alimento>();
-//    public static ArrayList<Bebida> listaBebida = new ArrayList<Bebida>();
-
     private static Queue<Visita> colaEspera = new LinkedList<Visita>();
-
-    /** ATENCION CLIENTE **/
-    private static int buscarMesa(Cliente cliente) {
-
-        for (Mesa mesa : AppRestauranteBD.getListaMesas()) {
-            if (mesa.getCapacidad() >= cliente.getNumeroAcompanantes() && mesa.getEstado() == 1)
-                return mesa.getNumMesa();
-        }
-
-        return 0;
-    }
-
-    public static int asignarMesa(Cliente cliente) {
-
-        int numeroMesa = buscarMesa(cliente);
-
-        if ((numeroMesa = buscarMesa(cliente)) == 0)
-            System.out.println("No hay mesas disponibles en este momento");
-        else {
-            System.out.println("El cliente " + cliente.getNombre() + " " + cliente.getApellidoPaterno() + " entrará a la mesa " + numeroMesa);
-            System.out.println("El mesero " + AppRestauranteBD.getListaMesas().get(numeroMesa).getMesero().getNombre() + " lo atenderá");
-        }
-
-        return 1;
-    }
-
-    public static void asignarMeseroMesa(Mesero mesero, int idMesa) {
-        mesero.AnadirMesa(AppRestauranteBD.getListaMesas().get(idMesa));
-        AppRestauranteBD.getListaMesas().get(idMesa).setMesero(mesero);
-    }
 
     public static void menuPrincipal() {
         int opcion;
@@ -133,9 +97,48 @@ public class AppRestauranteController {
     }
 
     private static void menuAtencion() {
-        //COMPLETAR
-        System.out.println("\nEn mantemiento! :v\n");
-        menuPrincipal();
+        int opcion;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("\nRESTAURANTE BELATRIX - Menú Atención\n");
+        System.out.println("\t(1)Registrar cliente");
+        System.out.println("\t(5)Regresar al menú de opciones\n");
+        System.out.print("Ingrese una opción: ");
+        opcion = in.nextInt();
+
+        while (opcion > 5 || opcion < 1) { //si escoge una opcion inválida
+            System.out.println("\nOpción no válida!");
+
+            System.out.println("\nRESTAURANTE BELATRIX - Menú Mesas\n");
+            System.out.println("\t(1)Registrar cliente");
+            System.out.println("\t(5)Regresar al menú de opciones\n");
+            System.out.print("Ingrese una opción: ");
+            opcion = in.nextInt();
+        }
+
+        switch (opcion) {
+            case 1:
+                ClienteController.registrar();
+                menuAtencion();
+                break;
+            case 2:
+                System.out.println("\nEn mantemiento! :v\n");
+                menuAtencion();
+                break;
+            case 3:
+                System.out.println("\nEn mantemiento! :v\n");
+                menuAtencion();
+                break;
+            case 4:
+                System.out.println("\nEn mantemiento! :v\n");
+                menuAtencion();
+                break;
+            case 5:
+                menuPrincipal();
+                break;
+            default:
+                break;
+        }
     }
 
     private static void menuMesas() {
@@ -192,9 +195,57 @@ public class AppRestauranteController {
     }
 
     private static void menuMeseros() {
-        //COMPLETAR
-        System.out.println("\nEn mantemiento! :v\n");
-        menuOpciones();
+        int opcion;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("\nRESTAURANTE BELATRIX - Menú Meseros\n");
+        System.out.println("\t(1)Registrar mesero");
+        System.out.println("\t(2)Modificar mesero");
+        System.out.println("\t(3)Eliminar mesero");
+        System.out.println("\t(4)Listar meseros");
+        System.out.println("\t(5)Regresar al menú de opciones\n");
+        System.out.print("Ingrese una opción: ");
+        opcion = in.nextInt();
+
+        while (opcion > 5 || opcion < 1) { //si escoge una opcion inválida
+            System.out.println("\nOpción no válida!");
+
+            System.out.println("\nRESTAURANTE BELATRIX - Menú Meseros\n");
+            System.out.println("\t(1)Registrar mesero");
+            System.out.println("\t(2)Modificar mesero");
+            System.out.println("\t(3)Eliminar mesero");
+            System.out.println("\t(4)Listar meseros");
+            System.out.println("\t(5)Regresar al menú de opciones\n");
+            System.out.print("Ingrese una opción: ");
+            opcion = in.nextInt();
+        }
+
+        switch (opcion) {
+            case 1:
+                MeseroController.registrar();
+                menuMeseros();
+                break;
+            case 2:
+                //modificar mesero
+                System.out.println("\nEn mantemiento! :v\n");
+                menuMeseros();
+                break;
+            case 3:
+                //eliminar mesero
+                System.out.println("\nEn mantemiento! :v\n");
+                menuMeseros();
+                break;
+            case 4:
+                //listar meseros
+                System.out.println("\nEn mantemiento! :v\n");
+                menuMeseros();
+                break;
+            case 5:
+                menuOpciones();
+                break;
+            default:
+                break;
+        }
     }
 
     private static void menuAlimentos() {
