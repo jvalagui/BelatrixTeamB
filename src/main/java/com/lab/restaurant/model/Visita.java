@@ -10,7 +10,8 @@ import java.util.Date;
 public class Visita {
 
     private int id;
-    private ArrayList<Cliente> listaCliente;
+    private Cliente cliente;
+    private int numeroAcompanantes;
     private Mesa mesa;
     private Date created_at;
     private Date updated_at;
@@ -19,9 +20,9 @@ public class Visita {
     public Visita() {
     }
 
-    public Visita(int id, ArrayList<Cliente> listaCliente, Mesa mesa) {
+    public Visita(int id, Cliente cliente, Mesa mesa) {
         this.id = id;
-        this.listaCliente = listaCliente;
+        this.cliente = cliente;
         this.mesa = mesa;
         this.created_at = new Date();
         this.updated_at = null;
@@ -36,12 +37,12 @@ public class Visita {
         this.id = id;
     }
 
-    public ArrayList<Cliente> getListaCliente() {
-        return listaCliente;
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
-    public void setListaCliente(ArrayList<Cliente> listaCliente) {
-        this.listaCliente = listaCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Mesa getIdMesa() {
