@@ -20,13 +20,13 @@ public class Persona{
     Persona() {
     }
 
-    Persona(int id, String numDocumento, String nombre, String apellidoPaterno, String apellidoMaterno, int estado) {
+    Persona(int id, String numDocumento, String nombre, String apellidoPaterno, String apellidoMaterno) {
         this.id = id;
         this.numDocumento = numDocumento;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
-        this.estado = estado;
+        this.estado = 1;
         this.created_at = new Date();
         this.updated_at = null;
         this.deleted_at = null;
