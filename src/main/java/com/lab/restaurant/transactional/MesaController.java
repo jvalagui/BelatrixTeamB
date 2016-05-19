@@ -29,8 +29,10 @@ public class MesaController {
             nuevoNumMesa = in.nextInt();
         }
 
-        System.out.print("\nIngresar capacidad: ");
+        in.nextLine();
+        System.out.print("Ingresar capacidad: ");
         nuevaCapacidad = in.nextInt();
+        in.nextLine();
 
         while(nuevaCapacidad<=0){
             System.out.println("\nDebe ingresar una capacidad mayor a cero!");

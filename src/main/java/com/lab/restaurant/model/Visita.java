@@ -1,6 +1,5 @@
 package com.lab.restaurant.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,10 +19,11 @@ public class Visita {
     public Visita() {
     }
 
-    public Visita(int id, Cliente cliente, Mesa mesa) {
+    public Visita(int id, Cliente cliente, int numeroAcompanantes) {
         this.id = id;
         this.cliente = cliente;
-        this.mesa = mesa;
+        this.numeroAcompanantes = numeroAcompanantes;
+        this.mesa = null;
         this.created_at = new Date();
         this.updated_at = null;
         this.deleted_at = null;
@@ -45,11 +45,19 @@ public class Visita {
         this.cliente = cliente;
     }
 
-    public Mesa getIdMesa() {
+    public int getNumeroAcompanantes() {
+        return numeroAcompanantes;
+    }
+
+    public void setNumeroAcompanantes(int numeroAcompanantes) {
+        this.numeroAcompanantes = numeroAcompanantes;
+    }
+
+    public Mesa getMesa() {
         return mesa;
     }
 
-    public void setIdMesa(Mesa mesa) {
+    public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
 
@@ -76,4 +84,6 @@ public class Visita {
     public void setDeleted_at(Date deleted_at) {
         this.deleted_at = deleted_at;
     }
+
+
 }

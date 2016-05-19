@@ -1,6 +1,7 @@
 package com.lab.restaurant.transactional;
 
 import com.lab.restaurant.model.*;
+import com.lab.restaurant.utils.Helper;
 
 import java.util.*;
 
@@ -98,42 +99,90 @@ public class AppRestauranteController {
 
     private static void menuAtencion() {
         int opcion;
+        String numeroDocumento;
+        Visita nuevaVisita;
         Scanner in = new Scanner(System.in);
 
         System.out.println("\nRESTAURANTE BELATRIX - Menú Atención\n");
         System.out.println("\t(1)Registrar cliente");
+        System.out.println("\t(2)Buscar cliente");
+        System.out.println("\t(3)Atender cola de espera");
         System.out.println("\t(5)Regresar al menú de opciones\n");
         System.out.print("Ingrese una opción: ");
         opcion = in.nextInt();
+        in.nextLine();
 
         while (opcion > 5 || opcion < 1) { //si escoge una opcion inválida
             System.out.println("\nOpción no válida!");
 
             System.out.println("\nRESTAURANTE BELATRIX - Menú Mesas\n");
             System.out.println("\t(1)Registrar cliente");
+            System.out.println("\t(2)Buscar cliente");
+            System.out.println("\t(3)Atender cola de espera");
             System.out.println("\t(5)Regresar al menú de opciones\n");
             System.out.print("Ingrese una opción: ");
             opcion = in.nextInt();
+            in.nextLine();
         }
 
         switch (opcion) {
             case 1:
-                ClienteController.registrar();
+                Cliente nuevoCliente = ClienteController.registrar();
+                nuevaVisita = VisitaController.registrar(nuevoCliente);
+                colaEspera.add(nuevaVisita);
+                System.out.println("\nEl cliente ha entrado a la cola de espera");
+                Helper.pausa();
                 menuAtencion();
                 break;
             case 2:
-                System.out.println("\nEn mantemiento! :v\n");
-                menuAtencion();
+                System.out.println("\nRESTAURANTE BELATRIX - Buscar Cliente\n");
+                System.out.print("Ingrese el numero de documento: ");
+                numeroDocumento = in.nextLine();
+                Cliente cliente = ClienteController.buscar(numeroDocumento);
+
+                if(cliente == null){
+                    System.out.println("\nEl cliente no ha sido encontrado");
+                    Helper.pausa();
+                    menuAtencion();
+                }
+                else{
+                    String respuesta;
+                    System.out.println("\nEl cliente ha sido encontrado");
+                    System.out.println("\n¿Desea poner al cliente " + cliente.getApellidoPaterno() +" " + cliente.getApellidoMaterno() +
+                            ", " + cliente.getNombre() + " en la cola de espera? (Y/N)");
+                    respuesta = in.nextLine();
+
+                    if(respuesta.equalsIgnoreCase("Y")){
+                        if(VisitaController.visitaEnCola(cliente,colaEspera)){
+                            System.out.println("\nEl cliente ya está en la cola de espera");
+                            Helper.pausa();
+                            menuAtencion();
+                        }
+                        else{
+                            nuevaVisita = VisitaController.registrar(cliente);
+                            colaEspera.add(nuevaVisita);
+                            System.out.println("\nEl cliente ha entrado a la cola de espera");
+                            Helper.pausa();
+                            menuAtencion();
+                        }
+                    }
+                    else{
+                        menuAtencion();
+                    }
+                }
                 break;
             case 3:
+                //Asignar Mesa
                 System.out.println("\nEn mantemiento! :v\n");
                 menuAtencion();
                 break;
             case 4:
+                //Asignar Pedido
                 System.out.println("\nEn mantemiento! :v\n");
                 menuAtencion();
                 break;
             case 5:
+                //Pagar
                 menuPrincipal();
                 break;
             default:
@@ -237,7 +286,8 @@ public class AppRestauranteController {
                 break;
             case 4:
                 //listar meseros
-                System.out.println("\nEn mantemiento! :v\n");
+                MeseroController.listar();
+                Helper.pausa();
                 menuMeseros();
                 break;
             case 5:

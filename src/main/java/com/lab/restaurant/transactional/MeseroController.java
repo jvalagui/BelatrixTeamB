@@ -54,6 +54,19 @@ public class MeseroController {
 //
 //    }
 
+    public static void listar() {
+        System.out.println("\nRESTAURANTE BELATRIX - Listado de meseros\n");
+        if (AppRestauranteBD.getListaMeseros().size() > 0)
+            for (Mesero mesero : AppRestauranteBD.getListaMeseros()) {
+                System.out.println("Mesero: " + mesero.getApellidoPaterno() + " " + mesero.getApellidoMaterno() + ", " + mesero.getNombre());
+                System.out.println("Numero de Documeto: " + mesero.getNumDocumento());
+                System.out.println();
+                //FALTAN IMPRIMIR SUS MESAS ASIGNADAS
+            }
+        else
+            System.out.println("\nNo hay meseros registrados!\n");
+    }
+
     private static int obtenerIdMesero(){
 
         int cantidadMeseros = AppRestauranteBD.getListaMeseros().size();
