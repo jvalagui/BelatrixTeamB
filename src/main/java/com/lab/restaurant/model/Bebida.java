@@ -45,7 +45,7 @@ public class Bebida {
         return "Bebida{" +
                 "id=" + id +
                 ", precio=" + precio +
-                ", tipoBebida='" + tipoBebida + '\'' +
+                ", tipoBebida=    '" + tipoBebida + '\'' +
                 '}';
     }
 }
