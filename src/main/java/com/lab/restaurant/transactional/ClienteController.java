@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class ClienteController {
 
-    public static void registrar(){
+    public static Cliente registrar(){
 
         String nombre;
         String apellidoPaterno;
@@ -21,11 +21,11 @@ public class ClienteController {
 
         //FALTAN VALIDACIONES (POR EJEMPLO VERIFICAR QUE SE INGRESEN SÓLO NUMEROS Y NO LETRAS)
 
-        System.out.println("\nRESTAURANTE BELATRIX - Registrar nuevo mesero\n");
+        System.out.println("\nRESTAURANTE BELATRIX - Registrar nuevo Cliente\n");
         System.out.print("Ingresar el numero de documento del cliente: ");
         numeroDocumento = in.nextLine();
 
-        while (exiseCliente(numeroDocumento)) { //VALIDACION BÁSICA
+        while (existeCliente(numeroDocumento)) { //VALIDACION BÁSICA
             System.out.println("\nEse número de documento ya existe!");
             System.out.print("Ingresar el numero de documento del cliente: ");
             numeroDocumento = in.nextLine();
@@ -34,16 +34,19 @@ public class ClienteController {
         System.out.print("\nIngresar nombre: ");
         nombre = in.nextLine();
 
-        System.out.print("\nIngresar apellido paterno: ");
+        System.out.print("Ingresar apellido paterno: ");
         apellidoPaterno = in.nextLine();
 
-        System.out.print("\nIngresar apellido materno: ");
+        System.out.print("Ingresar apellido materno: ");
         apellidoMaterno = in.nextLine();
 
         int idCliente = obtenerIdCliente();
-        AppRestauranteBD.getListaCliente().add(new Cliente(idCliente,numeroDocumento,nombre,apellidoPaterno,apellidoMaterno));
+        Cliente cliente = new Cliente(idCliente,numeroDocumento,nombre,apellidoPaterno,apellidoMaterno);
 
+        AppRestauranteBD.getListaCliente().add(cliente);
         System.out.println("\nCliente registrado correctamente!");
+
+        return cliente;
     }
 
 //    public static void editar(){
@@ -53,6 +56,21 @@ public class ClienteController {
 //    public static void eliminar(){
 //
 //    }
+
+    public static Cliente buscar(String numeroDocumento){
+
+        Cliente cliente = null;
+
+        if (AppRestauranteBD.getListaCliente().size() > 0){
+            for (Cliente auxCliente : AppRestauranteBD.getListaCliente()){
+                if (auxCliente.getNumDocumento().equalsIgnoreCase(numeroDocumento)){
+                    cliente = auxCliente;
+                    break;
+                }
+            }
+        }
+        return cliente;
+    }
 
     private static int obtenerIdCliente(){
 
@@ -67,7 +85,7 @@ public class ClienteController {
         }
     }
 
-    private static boolean exiseCliente(String numeroDocumento){
+    private static boolean existeCliente(String numeroDocumento){
 
         if (AppRestauranteBD.getListaCliente().size() > 0){
             for (Cliente cliente : AppRestauranteBD.getListaCliente())

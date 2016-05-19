@@ -55,4 +55,12 @@ public class AppRestauranteBD {
     public static void setListaBebida(ArrayList<Bebida> listaBebida) {
         AppRestauranteBD.listaBebida = listaBebida;
     }
+
+    public static ArrayList<Visita> getListaVisita() {
+        return listaVisita;
+    }
+
+    public static void setListaVisita(ArrayList<Visita> listaVisita) {
+        AppRestauranteBD.listaVisita = listaVisita;
+    }
 }
