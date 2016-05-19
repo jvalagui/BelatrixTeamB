@@ -5,23 +5,13 @@ package com.lab.restaurant.model;
  */
 public class Cliente extends Persona {
 
-    private int numeroAcompanantes;
-
     public Cliente() {
     }
 
-    public Cliente(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado, int numeroAcompanantes) {
-        super(id, numDocumento, nombre, apPaterno, apMaterno, estado);
+    public Cliente(int id, String numDocumento, String nombre, String apPaterno, String apMaterno) {
+        super(id, numDocumento, nombre, apPaterno, apMaterno);
 
-        this.numeroAcompanantes = numeroAcompanantes;
-    }
 
-    public int getNumeroAcompanantes() {
-        return numeroAcompanantes;
-    }
-
-    public void setNumeroAcompanantes(int numeroAcompanantes) {
-        this.numeroAcompanantes = numeroAcompanantes;
     }
 
     @Override

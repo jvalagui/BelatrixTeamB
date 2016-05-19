@@ -10,12 +10,12 @@ public class Mesero extends Persona {
 
     private ArrayList<Mesa> listaMesas;
 
-    public Mesero(int id, String numDocumento, String nombre, String apPaterno, String apMaterno, int estado) {
-        super(id, numDocumento, nombre, apPaterno, apMaterno, estado);
+    public Mesero(int id, String numDocumento, String nombre, String apPaterno, String apMaterno) {
+        super(id, numDocumento, nombre, apPaterno, apMaterno);
         this.listaMesas = new ArrayList<Mesa>();
     }
 
-    public void AnadirMesa(Mesa mesa){
+    public void anadirMesa(Mesa mesa){
         this.listaMesas.add(mesa);
     }
 

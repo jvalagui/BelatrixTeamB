@@ -169,28 +169,9 @@ public class AppRestauranteController {
     }
 
     private static void menuBebidas() {
-        int opcion;
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("\nRESTAURANTE BELATRIX - Menú Bebidas\n");
-        System.out.println("\t(1)Bebidas con alcohol");
-        System.out.println("\t(2)Bebidas sin alcohol");
-        System.out.println("\t(3)Regresar al menú de opciones\n");
-        System.out.print("Ingrese una opción: ");
-        opcion = in.nextInt();
         //COMPLETAR
-        switch (opcion) {
-            case 1:
-                //bebidasConalcohol();
-                break;
-            case 2:
-                //bebidasSinalcohol();
-                break;
-            case 3:
-                menuOpciones();
-                break;
-
-        }
+        System.out.println("\nEn mantemiento! :v\n");
+        menuOpciones();
     }
 
     private static void menuOpciones() {
