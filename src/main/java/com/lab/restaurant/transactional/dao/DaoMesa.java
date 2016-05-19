@@ -11,5 +11,5 @@ public interface DaoMesa {
     public String registrar(Mesa mesa);
     public String actualizar(Mesa mesa);
     public String eliminar(String ids);
-    public Mesa obtenerMesa(Integer idmesa);
+    public Mesa obtenerMesa(Integer idMesa);
 }
