@@ -1,5 +1,5 @@
 package com.lab.restaurant.model;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**

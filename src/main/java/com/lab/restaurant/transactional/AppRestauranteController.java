@@ -182,12 +182,12 @@ public class AppRestauranteController {
                 break;
             case 4:
                 //Asignar Mesa
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 menuAtencion();
                 break;
             case 5:
                 //Asignar Pedido
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 menuAtencion();
                 break;
             case 6:
@@ -235,13 +235,13 @@ public class AppRestauranteController {
                 break;
             case 2:
                 //modificar mesa
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 Helper.pausa();
                 menuMesas();
                 break;
             case 3:
                 //eliminar mesa
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 Helper.pausa();
                 menuMesas();
                 break;
@@ -300,13 +300,13 @@ public class AppRestauranteController {
                 break;
             case 2:
                 //modificar mesero
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 menuMeseros();
                 Helper.pausa();
                 break;
             case 3:
                 //eliminar mesero
-                System.out.println("\nEn mantemiento! :v\n");
+                System.out.println("\nEn mantenimiento! :v\n");
                 menuMeseros();
                 Helper.pausa();
                 break;
@@ -327,13 +327,13 @@ public class AppRestauranteController {
 
     private static void menuAlimentos() {
         //COMPLETAR
-        System.out.println("\nEn mantemiento! :v\n");
+        System.out.println("\nEn mantenimiento! :v\n");
         menuOpciones();
     }
 
     private static void menuBebidas() {
         //COMPLETAR
-        System.out.println("\nEn mantemiento! :v\n");
+        System.out.println("\nEn mantenimiento! :v\n");
         menuOpciones();
     }
 

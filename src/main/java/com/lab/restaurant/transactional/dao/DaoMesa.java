@@ -10,6 +10,6 @@ public interface DaoMesa {
     public List <Mesa> listar();
     public String registrar(Mesa mesa);
     public String actualizar(Mesa mesa);
-    public String eliminar(String ids);
+    public String eliminar(String id);
     public Mesa obtenerMesa(Integer idMesa);
 }

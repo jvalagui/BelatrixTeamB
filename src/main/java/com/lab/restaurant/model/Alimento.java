@@ -1,5 +1,5 @@
 package com.lab.restaurant.model;
-
+import java.io.Serializable;
 /**
  * Created by Braulio Trigueros on 11/05/2016.
  * Modified by Edu Chuks

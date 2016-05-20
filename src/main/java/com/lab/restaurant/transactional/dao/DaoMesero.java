@@ -9,7 +9,7 @@ import java.util.List;
 public interface DaoMesero {
     public List <Mesero> consultar();
     public String insertar(Mesero mesero);
-    public String eliminar(String ids);
-    public Mesero obtenerMesero(Integer idmesero);
+    public String eliminar(String id);
+    public Mesero obtenerMesero(Integer idMesero);
     public String actualizar(Mesero mesero);
 }
