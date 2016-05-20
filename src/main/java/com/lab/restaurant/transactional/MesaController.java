@@ -129,7 +129,7 @@ public class MesaController {
 
         if (AppRestauranteBD.getListaMesas().size() > 0)
             for (Mesa mesa : AppRestauranteBD.getListaMesas())
-                if (mesa.getMesero() != null) //si ya está asignada
+                if (mesa.getNumMesa() == numMesa && mesa.getMesero() != null) //si ya está asignada
                     return true;
 
         return false;
