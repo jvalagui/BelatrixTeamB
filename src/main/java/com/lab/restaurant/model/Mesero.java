@@ -15,8 +15,9 @@ public class Mesero extends Persona {
         this.listaMesas = new ArrayList<Mesa>();
     }
 
-    public void anadirMesa(Mesa mesa){
+    public void anadirMesa(Mesa mesa) {
         this.listaMesas.add(mesa);
+        mesa.setMesero(this);
     }
 
     public ArrayList<Mesa> getListaMesas() {

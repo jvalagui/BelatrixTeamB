@@ -43,7 +43,7 @@ public class AppRestauranteController {
                 menuOpciones();
                 break;
             case 3:
-                System.out.println("\nHasta luego! :D");
+                System.out.println("\nHasta luego!\n");
                 break;
             default:
                 break;
@@ -208,11 +208,12 @@ public class AppRestauranteController {
         System.out.println("\t(2)Modificar mesa");
         System.out.println("\t(3)Eliminar mesa");
         System.out.println("\t(4)Listar mesas");
-        System.out.println("\t(5)Regresar al menú de opciones\n");
+        System.out.println("\t(5)Asignar mesa");
+        System.out.println("\t(6)Regresar al menú de opciones\n");
         System.out.print("Ingrese una opción: ");
         opcion = in.nextInt();
 
-        while (opcion > 5 || opcion < 1) { //si escoge una opcion inválida
+        while (opcion > 6 || opcion < 1) { //si escoge una opcion inválida
             System.out.println("\nOpción no válida!");
 
             System.out.println("\nRESTAURANTE BELATRIX - Menú Mesas\n");
@@ -220,7 +221,8 @@ public class AppRestauranteController {
             System.out.println("\t(2)Modificar mesa");
             System.out.println("\t(3)Eliminar mesa");
             System.out.println("\t(4)Listar mesas");
-            System.out.println("\t(5)Regresar al menú de opciones\n");
+            System.out.println("\t(5)Asignar mesa");
+            System.out.println("\t(6)Regresar al menú de opciones\n");
             System.out.print("Ingrese una opción: ");
             opcion = in.nextInt();
         }
@@ -228,23 +230,34 @@ public class AppRestauranteController {
         switch (opcion) {
             case 1:
                 MesaController.registrar();
+                Helper.pausa();
                 menuMesas();
                 break;
             case 2:
                 //modificar mesa
                 System.out.println("\nEn mantemiento! :v\n");
+                Helper.pausa();
                 menuMesas();
                 break;
             case 3:
                 //eliminar mesa
                 System.out.println("\nEn mantemiento! :v\n");
+                Helper.pausa();
                 menuMesas();
                 break;
             case 4:
+                System.out.println("\nRESTAURANTE BELATRIX - Listado de mesas\n");
                 MesaController.listar();
+                Helper.pausa();
                 menuMesas();
                 break;
             case 5:
+                System.out.println("\nRESTAURANTE BELATRIX - Asignación de mesa\n");
+                MesaController.asignarMesa();
+                Helper.pausa();
+                menuMesas();
+                break;
+            case 6:
                 menuOpciones();
                 break;
             default:
@@ -280,21 +293,26 @@ public class AppRestauranteController {
 
         switch (opcion) {
             case 1:
+                System.out.println("\nRESTAURANTE BELATRIX - Registrar nuevo mesero\n");
                 MeseroController.registrar();
                 menuMeseros();
+                Helper.pausa();
                 break;
             case 2:
                 //modificar mesero
                 System.out.println("\nEn mantemiento! :v\n");
                 menuMeseros();
+                Helper.pausa();
                 break;
             case 3:
                 //eliminar mesero
                 System.out.println("\nEn mantemiento! :v\n");
                 menuMeseros();
+                Helper.pausa();
                 break;
             case 4:
                 //listar meseros
+                System.out.println("\nRESTAURANTE BELATRIX - Listado de meseros\n");
                 MeseroController.listar();
                 Helper.pausa();
                 menuMeseros();

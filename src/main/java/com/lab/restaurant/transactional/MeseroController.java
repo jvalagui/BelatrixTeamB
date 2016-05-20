@@ -1,5 +1,6 @@
 package com.lab.restaurant.transactional;
 
+import com.lab.restaurant.model.Mesa;
 import com.lab.restaurant.model.Mesero;
 
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.Scanner;
  */
 public class MeseroController {
 
-    public static void registrar(){
+    public static void registrar() {
 
         String nombre;
         String apellidoPaterno;
@@ -19,13 +20,11 @@ public class MeseroController {
         Scanner in = new Scanner(System.in);
 
         //FALTAN VALIDACIONES (POR EJEMPLO VERIFICAR QUE SE INGRESEN SÓLO NUMEROS Y NO LETRAS)
-
-        System.out.println("\nRESTAURANTE BELATRIX - Registrar nuevo mesero\n");
         System.out.print("Ingresar el numero de documento del mesero: ");
         numeroDocumento = in.nextLine();
 
         while (existeMesero(numeroDocumento)) { //VALIDACION BÁSICA
-            System.out.println("\nEse número de documento ya existe!");
+            System.out.println("\nEse número de documento ya existe!\n");
             System.out.print("Ingresar el numero de documento del mesero: ");
             numeroDocumento = in.nextLine();
         }
@@ -40,9 +39,9 @@ public class MeseroController {
         apellidoMaterno = in.nextLine();
 
         int idMesero = obtenerIdMesero();
-        AppRestauranteBD.getListaMeseros().add(new Mesero(idMesero,numeroDocumento,nombre,apellidoPaterno,apellidoMaterno));
+        AppRestauranteBD.getListaMeseros().add(new Mesero(idMesero, numeroDocumento, nombre, apellidoPaterno, apellidoMaterno));
 
-        System.out.println("\nMesero registrado correctamente!");
+        System.out.println("\nMesero registrado correctamente!\n");
 
     }
 
@@ -55,36 +54,41 @@ public class MeseroController {
 //    }
 
     public static void listar() {
-        System.out.println("\nRESTAURANTE BELATRIX - Listado de meseros\n");
+        int contador = 0;
         if (AppRestauranteBD.getListaMeseros().size() > 0)
             for (Mesero mesero : AppRestauranteBD.getListaMeseros()) {
-                System.out.println("Mesero: " + mesero.getApellidoPaterno() + " " + mesero.getApellidoMaterno() + ", " + mesero.getNombre());
-                System.out.println("Numero de Documeto: " + mesero.getNumDocumento());
+                contador++;
+                System.out.println("(" + contador + ")Mesero: " + mesero.getApellidoPaterno() + " " + mesero.getApellidoMaterno() + ", " + mesero.getNombre());
+                System.out.println("Nro de Documento: " + mesero.getNumDocumento());
+                if (mesero.getListaMesas().size() > 0) {
+                    System.out.print("Atendiendo a las mesas:");
+                    for (Mesa mesa : mesero.getListaMesas()) {
+                        System.out.print(" " + mesa.getNumMesa());
+                    }
+                }
                 System.out.println();
-                //FALTAN IMPRIMIR SUS MESAS ASIGNADAS
             }
         else
             System.out.println("\nNo hay meseros registrados!\n");
     }
 
-    private static int obtenerIdMesero(){
+    private static int obtenerIdMesero() {
 
         int cantidadMeseros = AppRestauranteBD.getListaMeseros().size();
 
-        if(cantidadMeseros == 0){
+        if (cantidadMeseros == 0) {
             return 1;
-        }
-        else{
+        } else {
             int idMesero = cantidadMeseros++;
             return idMesero;
         }
     }
 
-    private static boolean existeMesero(String numeroDocumento){
+    private static boolean existeMesero(String numeroDocumento) {
 
-        if (AppRestauranteBD.getListaMeseros().size() > 0){
+        if (AppRestauranteBD.getListaMeseros().size() > 0) {
             for (Mesero mesero : AppRestauranteBD.getListaMeseros())
-                if (mesero.getNumDocumento().equalsIgnoreCase(numeroDocumento)){
+                if (mesero.getNumDocumento().equalsIgnoreCase(numeroDocumento)) {
                     return true;
                 }
         }
