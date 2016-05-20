@@ -28,17 +28,6 @@ public class VisitaController {
         return visita;
     }
 
-    public static boolean visitaEnCola(Cliente cliente, Queue<Visita> colaEspera){
-
-        for (Visita visita: colaEspera) {
-            if(visita.getCliente().getNumDocumento().equalsIgnoreCase(cliente.getNumDocumento())){
-
-                return true;
-            }
-        }
-        return false;
-    }
-
     private static int obtenerIdVisita(){
 
         int cantidadVisitas = AppRestauranteBD.getListaVisita().size();
