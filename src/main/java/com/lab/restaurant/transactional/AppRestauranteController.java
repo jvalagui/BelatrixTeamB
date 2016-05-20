@@ -252,8 +252,8 @@ public class AppRestauranteController {
                 menuMesas();
                 break;
             case 5:
-                System.out.println("\nRESTAURANTE BELATRIX - Asignación de mesa\n");
-                MesaController.asignarMesa();
+                System.out.println("\nRESTAURANTE BELATRIX - Asignación de meseros por mesas\n");
+                MesaController.asignarMesero();
                 Helper.pausa();
                 menuMesas();
                 break;
