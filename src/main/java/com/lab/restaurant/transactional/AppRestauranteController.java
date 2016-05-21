@@ -392,6 +392,7 @@ public class AppRestauranteController {
 
     private static void atenderCola(){
 
+        //ArrayList<Visita> listaVisitaRemover = new ArrayList<>();
         int contador = 0;
 
         if(colaEspera.isEmpty()){
@@ -408,6 +409,7 @@ public class AppRestauranteController {
                 else{
                     System.out.println("\nEl cliente " + visita.getCliente().getApellidoPaterno() + " " + visita.getCliente().getApellidoMaterno() + ", " + visita.getCliente().getNombre()  + " entrará a la mesa: " + visita.getMesa().getNumMesa() );
                     //System.out.println("El mesero: " + visita.getMesa().getMesero().getNombre() + " lo atenderá");
+                    //listaVisitaRemover.add(visita);
                     colaEspera.remove(visita);
                 }
 
