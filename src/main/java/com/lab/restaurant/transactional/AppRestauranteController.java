@@ -109,12 +109,14 @@ public class AppRestauranteController {
         System.out.println("\t(2)Buscar cliente");
         System.out.println("\t(3)Ver cola de espera");
         System.out.println("\t(4)Atender cola de espera -> " + cantidadColaEspera);
-        System.out.println("\t(6)Regresar al menú de opciones\n");
+        System.out.println("\t(5)Atender mesa");
+        System.out.println("\t(6)Finalizar atencion");
+        System.out.println("\t(7)Regresar al menú de opciones\n");
         System.out.print("Ingrese una opción: ");
         opcion = in.nextInt();
         in.nextLine();
 
-        while (opcion > 6 || opcion < 1) { //si escoge una opcion inválida
+        while (opcion > 7 || opcion < 1) { //si escoge una opcion inválida
             System.out.println("\nOpción no válida!");
 
             System.out.println("\nRESTAURANTE BELATRIX - Menú Mesas\n");
@@ -122,7 +124,9 @@ public class AppRestauranteController {
             System.out.println("\t(2)Buscar cliente");
             System.out.println("\t(3)Ver cola de espera");
             System.out.println("\t(4)Atender cola de espera -> " + cantidadColaEspera);
-            System.out.println("\t(6)Regresar al menú de opciones\n");
+            System.out.println("\t(5)Atender mesa");
+            System.out.println("\t(6)Finalizar atencion");
+            System.out.println("\t(7)Regresar al menú de opciones\n");
             System.out.print("Ingrese una opción: ");
             opcion = in.nextInt();
             in.nextLine();
@@ -132,7 +136,7 @@ public class AppRestauranteController {
             case 1:
                 Cliente nuevoCliente = ClienteController.registrar();
                 nuevaVisita = VisitaController.registrar(nuevoCliente);
-                colaEspera.add(nuevaVisita);
+                colaEspera.offer(nuevaVisita);
                 System.out.println("\nEl cliente ha entrado a la cola de espera");
                 Helper.pausa();
                 menuAtencion();
@@ -175,23 +179,45 @@ public class AppRestauranteController {
                 }
                 break;
             case 3:
-                //Listar Cola
                 verCola();
                 Helper.pausa();
                 menuAtencion();
                 break;
             case 4:
-                //Asignar Mesa
-                System.out.println("\nEn mantemiento! :v\n");
+                atenderCola();
+                Helper.pausa();
                 menuAtencion();
                 break;
             case 5:
                 //Asignar Pedido
                 System.out.println("\nEn mantemiento! :v\n");
+                Helper.pausa();
                 menuAtencion();
                 break;
             case 6:
-                //Pagar
+                int numeroMesa;
+                Visita visitaAtender;
+                VisitaController.listarVisitasEnAtencion();
+                System.out.print("\nIngresar numero de mesa: ");
+                 numeroMesa = in.nextInt();
+                in.nextLine();
+
+                visitaAtender = VisitaController.obtenerVisitaPorNumeroMesa(numeroMesa);
+
+                while(visitaAtender == null){
+                    System.out.println("\nNúmero de mesa incorrecto");
+                    VisitaController.listarVisitasEnAtencion();
+                    System.out.print("\nIngresar numero de mesa: ");
+                    numeroMesa = in.nextInt();
+                    in.nextLine();
+                    visitaAtender = VisitaController.obtenerVisitaPorNumeroMesa(numeroMesa);
+                }
+
+                VisitaController.finalizarAtencion(visitaAtender);
+                Helper.pausa();
+                menuAtencion();
+                break;
+            case 7:
                 menuPrincipal();
                 break;
             default:
@@ -208,7 +234,7 @@ public class AppRestauranteController {
         System.out.println("\t(2)Modificar mesa");
         System.out.println("\t(3)Eliminar mesa");
         System.out.println("\t(4)Listar mesas");
-        System.out.println("\t(5)Asignar mesa");
+        System.out.println("\t(5)Asignar mesero");
         System.out.println("\t(6)Regresar al menú de opciones\n");
         System.out.print("Ingrese una opción: ");
         opcion = in.nextInt();
@@ -221,7 +247,7 @@ public class AppRestauranteController {
             System.out.println("\t(2)Modificar mesa");
             System.out.println("\t(3)Eliminar mesa");
             System.out.println("\t(4)Listar mesas");
-            System.out.println("\t(5)Asignar mesa");
+            System.out.println("\t(5)Asignar mesero");
             System.out.println("\t(6)Regresar al menú de opciones\n");
             System.out.print("Ingrese una opción: ");
             opcion = in.nextInt();
@@ -348,7 +374,7 @@ public class AppRestauranteController {
     }
 
     private static void verCola(){
-        int contador = 0;
+        int contador = 1;
 
         if(colaEspera.isEmpty()){
             System.out.println("\nLa cola está vacía");
@@ -359,8 +385,35 @@ public class AppRestauranteController {
                 System.out.println("\n[" + contador + "]");
                 System.out.println("Cliente: " + visita.getCliente().getApellidoPaterno() + " " + visita.getCliente().getApellidoMaterno() + ", " + visita.getCliente().getNombre());
                 System.out.println("Numero de acompanantes: " + visita.getNumeroAcompanantes() + "\n");
-
+                contador++;
             }
         }
     }
+
+    private static void atenderCola(){
+
+        int contador = 0;
+
+        if(colaEspera.isEmpty()){
+            System.out.println("\nLa cola de espera está vacía");
+        }
+        else{
+            for (Visita visita : colaEspera) {
+
+                int resultado = VisitaController.asignarMesa(visita);
+
+                if(resultado == 0){
+                    //System.out.println("\nNo hay mesa disponible para el cliente: " + visita.getCliente().getApellidoPaterno() + " " + visita.getCliente().getApellidoMaterno() + ", " + visita.getCliente().getNombre());
+                }
+                else{
+                    System.out.println("\nEl cliente " + visita.getCliente().getApellidoPaterno() + " " + visita.getCliente().getApellidoMaterno() + ", " + visita.getCliente().getNombre()  + " entrará a la mesa: " + visita.getMesa().getNumMesa() );
+                    //System.out.println("El mesero: " + visita.getMesa().getMesero().getNombre() + " lo atenderá");
+                    colaEspera.remove(visita);
+                }
+
+                contador++;
+            }
+        }
+    }
+
 }

@@ -3,7 +3,6 @@ package com.lab.restaurant.transactional;
 import com.lab.restaurant.app.AppRestaurant;
 import com.lab.restaurant.model.Mesa;
 import com.lab.restaurant.model.Mesero;
-import com.lab.restaurant.transactional.dao.DaoMesa;
 
 import java.util.Scanner;
 
@@ -124,21 +123,6 @@ public class MesaController {
 
         mesa.setEstado(1);
 
-    }
-
-    private static int obtenIndiceMesa(int numeroMesa) {
-        //se asume que para invocar esta funcion la lista de mesas siempre tendrá al menos un elemento
-        int contador = AppRestauranteBD.getListaMesas().size();
-        int indice = 0;
-
-        for(int i = 0; i < contador; i++){
-            if (AppRestauranteBD.getListaMesas().get(i).getNumMesa() == numeroMesa){
-                indice = i;
-                break;
-            }
-        }
-
-        return indice;
     }
 
     private static Mesa verificaAsignacion(int numMesa) {
