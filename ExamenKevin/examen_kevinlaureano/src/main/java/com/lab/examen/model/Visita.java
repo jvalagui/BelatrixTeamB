@@ -1,0 +1,86 @@
+package main.java.com.lab.examen.model;
+
+import java.util.Date;
+
+
+public class Visita {
+
+    private int id;
+    private Cliente cliente;
+    private int numeroAcompanantes;
+    private Mesa mesa;
+    private Date created_at;
+    private Date updated_at;
+    private Date deleted_at;
+
+    public Visita() {
+    }
+
+    public Visita(int id, Cliente cliente, int numeroAcompanantes) {
+        this.id = id;
+        this.cliente = cliente;
+        this.numeroAcompanantes = numeroAcompanantes;
+        this.mesa = null;
+        this.created_at = new Date();
+        this.updated_at = null;
+        this.deleted_at = null;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public int getNumeroAcompanantes() {
+        return numeroAcompanantes;
+    }
+
+    public void setNumeroAcompanantes(int numeroAcompanantes) {
+        this.numeroAcompanantes = numeroAcompanantes;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public Date getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
+    }
+
+    public Date getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public Date getDeleted_at() {
+        return deleted_at;
+    }
+
+    public void setDeleted_at(Date deleted_at) {
+        this.deleted_at = deleted_at;
+    }
+
+
+}
