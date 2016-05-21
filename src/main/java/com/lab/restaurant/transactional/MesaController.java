@@ -114,6 +114,18 @@ public class MesaController {
 
     }
 
+    public static void ocuparMesa(Mesa mesa){
+
+        mesa.setEstado(2);
+
+    }
+
+    public static void desocuparMesa(Mesa mesa){
+
+        mesa.setEstado(1);
+
+    }
+
     private static int obtenIndiceMesa(int numeroMesa) {
         //se asume que para invocar esta funcion la lista de mesas siempre tendrá al menos un elemento
         int contador = AppRestauranteBD.getListaMesas().size();

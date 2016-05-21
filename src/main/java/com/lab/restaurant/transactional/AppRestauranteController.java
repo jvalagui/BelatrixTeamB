@@ -341,7 +341,6 @@ public class AppRestauranteController {
 
         for (Visita visita: colaEspera) {
             if(visita.getCliente().getNumDocumento().equalsIgnoreCase(cliente.getNumDocumento())){
-
                 return true;
             }
         }
