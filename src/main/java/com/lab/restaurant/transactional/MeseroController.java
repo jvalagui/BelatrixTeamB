@@ -65,6 +65,7 @@ public class MeseroController {
                     for (Mesa mesa : mesero.getListaMesas()) {
                         System.out.print(" " + mesa.getNumMesa());
                     }
+                    System.out.println();
                 }
                 System.out.println();
             }
