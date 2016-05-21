@@ -69,21 +69,24 @@ public class MesaController {
             System.out.println("No hay mesas registradas!\n");
     }
 
-    public static void asignarMesa() {
+    public static void asignarMesero() {
         if (AppRestauranteBD.getListaMesas().size() > 0) {
             int numeroMesa;
             int numeroMesero;
+            Mesa mesaActual;
             Scanner in = new Scanner(System.in);
 
             listar();
             System.out.print("Ingresar numero de mesa a asignar: ");
             numeroMesa = in.nextInt();
+            mesaActual = verificaAsignacion(numeroMesa);
 
-            while (verificaAsignacion(numeroMesa)) { //VALIDACION BÁSICA
+            while (mesaActual == null) { //VALIDACION BÁSICA
                 System.out.println("\nEsa mesa ya está asignada!\n");
                 listar();
                 System.out.print("Ingresar número de mesa: ");
                 numeroMesa = in.nextInt();
+                mesaActual = verificaAsignacion(numeroMesa);
             }
 
             System.out.println("");
@@ -100,11 +103,7 @@ public class MesaController {
                     System.out.print("Ingresar numero del mesero: ");
                     numeroMesero = in.nextInt();
                 }
-
-                Mesa mesa = AppRestauranteBD.getListaMesas().get(obtenIndiceMesa(numeroMesa));
-                //Mesero mesero = AppRestauranteBD.getListaMeseros().get(numeroMesero - 1);
-                //2AppRestauranteBD.getListaMesas().get(obtenIndiceMesa(numeroMesa)).setMesero(mesero);
-                AppRestauranteBD.getListaMeseros().get(numeroMesero - 1).anadirMesa(mesa);
+                AppRestauranteBD.getListaMeseros().get(numeroMesero - 1).anadirMesa(mesaActual);
 
                 System.out.println("\nMesa asignada correctamente!\n");
             } else
@@ -115,24 +114,45 @@ public class MesaController {
 
     }
 
-    private static int obtenIndiceMesa(int numeroMesa) {
-        //se asume que para invocar esta funcion la lista de mesas siempre tendrá al menos un elemento
-        int i = 0;
-        while (i < AppRestauranteBD.getListaMesas().size()) {
-            if (AppRestauranteBD.getListaMesas().get(i).getNumMesa() == numeroMesa)
-                break;
-        }
-        return i;
+    public static void ocuparMesa(Mesa mesa){
+
+        mesa.setEstado(2);
+
     }
 
-    private static boolean verificaAsignacion(int numMesa) {
+    public static void desocuparMesa(Mesa mesa){
+
+        mesa.setEstado(1);
+
+    }
+
+    private static int obtenIndiceMesa(int numeroMesa) {
+        //se asume que para invocar esta funcion la lista de mesas siempre tendrá al menos un elemento
+        int contador = AppRestauranteBD.getListaMesas().size();
+        int indice = 0;
+
+        for(int i = 0; i < contador; i++){
+            if (AppRestauranteBD.getListaMesas().get(i).getNumMesa() == numeroMesa){
+                indice = i;
+                break;
+            }
+        }
+
+        return indice;
+    }
+
+    private static Mesa verificaAsignacion(int numMesa) {
+
+        Mesa mesa = null;
 
         if (AppRestauranteBD.getListaMesas().size() > 0)
-            for (Mesa mesa : AppRestauranteBD.getListaMesas())
-                if (mesa.getNumMesa() == numMesa && mesa.getMesero() != null) //si ya está asignada
-                    return true;
+            for (Mesa auxMesa : AppRestauranteBD.getListaMesas())
+                if (auxMesa.getNumMesa() == numMesa && auxMesa.getMesero() == null){
+                    mesa = auxMesa;
+                    return mesa;
+                }
 
-        return false;
+        return mesa;
     }
 
     private static int obtenerIdMesa() {

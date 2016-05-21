@@ -252,8 +252,8 @@ public class AppRestauranteController {
                 menuMesas();
                 break;
             case 5:
-                System.out.println("\nRESTAURANTE BELATRIX - Asignación de mesa\n");
-                MesaController.asignarMesa();
+                System.out.println("\nRESTAURANTE BELATRIX - Asignación de meseros por mesas\n");
+                MesaController.asignarMesero();
                 Helper.pausa();
                 menuMesas();
                 break;
@@ -341,7 +341,6 @@ public class AppRestauranteController {
 
         for (Visita visita: colaEspera) {
             if(visita.getCliente().getNumDocumento().equalsIgnoreCase(cliente.getNumDocumento())){
-
                 return true;
             }
         }
