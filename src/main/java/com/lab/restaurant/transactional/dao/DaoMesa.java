@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DaoMesa {
     public List <Mesa> listar();
-    public String registrar(Mesa mesa);
+    public String insertar(Mesa mesa);
     public String actualizar(Mesa mesa);
     public String eliminar(String id);
     public Mesa obtenerMesa(Integer idMesa);

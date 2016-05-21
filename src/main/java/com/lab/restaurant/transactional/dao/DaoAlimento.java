@@ -9,6 +9,6 @@ public interface DaoAlimento {
     public List <Alimento> consultar();
     public String insertar(Alimento alimento);
     public String eliminar(String id);
-    public Alimento obtenerAlimento(Integer idalimeto);
+    public Alimento obtenerAlimento(Integer idAlimeto);
     public String actualizar(Alimento alimento);
 }
