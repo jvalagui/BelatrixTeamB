@@ -1,6 +1,6 @@
 package com.lab.restaurant.model;
-
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by Kei on 09/05/2016.
@@ -27,7 +27,7 @@ public class Persona{
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.estado = 1;
-        this.created_at = new Date();
+        this.created_at = null;
         this.updated_at = null;
         this.deleted_at = null;
     }

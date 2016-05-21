@@ -1,5 +1,5 @@
 package com.lab.restaurant.model;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +13,10 @@ public class Mesero extends Persona {
     public Mesero(int id, String numDocumento, String nombre, String apPaterno, String apMaterno) {
         super(id, numDocumento, nombre, apPaterno, apMaterno);
         this.listaMesas = new ArrayList<Mesa>();
+    }
+
+    public Mesero() {
+
     }
 
     public void anadirMesa(Mesa mesa) {

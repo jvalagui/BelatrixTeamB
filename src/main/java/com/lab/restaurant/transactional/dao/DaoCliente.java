@@ -9,7 +9,7 @@ import java.util.List;
 public interface DaoCliente {
     public List <Cliente> consultar();
     public String insertar(Cliente cliente);
-    public String eliminar(String ids);
-    public Cliente obtenerCliente(Integer idcliente);
+    public String eliminar(String id);
+    public Cliente obtenerCliente(Integer idCliente);
     public String actualizar(Cliente cliente);
 }
