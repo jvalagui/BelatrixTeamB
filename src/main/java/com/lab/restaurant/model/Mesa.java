@@ -1,7 +1,6 @@
 package com.lab.restaurant.model;
-import java.io.Serializable;
-//import java.util.Date;
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by Kei on 09/05/2016.

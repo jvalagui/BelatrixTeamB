@@ -8,7 +8,7 @@ import java.util.List;
 public interface DaoBebida {
     public List <Bebida> consultar();
     public String insertar(Bebida bebida);
-    public String eliminar(String id);
-    public Bebida obtenerBebida(Integer idBebida);
+    public String eliminar(String ids);
+    public Bebida obtenerBebida(Integer idbebida);
     public String actualizar(Bebida bebida);
 }
